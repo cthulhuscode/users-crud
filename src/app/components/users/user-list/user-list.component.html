@@ -1,0 +1,30 @@
+<div class="card my-5">
+  <div class="card-body">
+    <h6 class="text-center">Lista de usuarios</h6>
+    <table class="table table-sm table-hover">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th>Fecha</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of userList">
+          <td>{{ user.nombre }}</td>
+          <td>{{ user.apellidos }}</td>
+          <td>{{ user.fecha }}</td>
+          <td>
+            <a class="btn btn-warning btn-sm m-1" (click)="onEdit(user)">
+              <i class="far fa-edit"></i>
+            </a>
+            <a class="btn btn-danger btn-sm m-1" (click)="onDelete(user.$key)">
+              <i class="far fa-trash-alt"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

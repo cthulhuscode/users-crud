@@ -1,0 +1,64 @@
+<div class="card mt-5">
+  <div class="card-body">
+    <!--Send the form through onSubmit-->
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+      <!--to know when to update or add document-->
+      <input
+        type="hidden"
+        name="$key"
+        #$key="ngModel"
+        [(ngModel)]="userService.selectedUser.$key"
+      />
+
+      <div class="form-group">
+        <!--two way data binding-->
+        <input
+          type="text"
+          class="form-control"
+          name="nombre"
+          #nombre="ngModel"
+          [(ngModel)]="userService.selectedUser.nombre"
+          placeholder="nombres"
+        />
+      </div>
+
+      <div class="form-group">
+        <!--two way data binding-->
+        <input
+          type="text"
+          class="form-control"
+          name="apellidos"
+          #apellidos="ngModel"
+          [(ngModel)]="userService.selectedUser.apellidos"
+          placeholder="apellidos"
+        />
+      </div>
+
+      <div class="form-group">
+        <!--two way data binding-->
+        <input
+          type="text"
+          class="form-control"
+          name="fecha"
+          #fecha="ngModel"
+          [(ngModel)]="userService.selectedUser.fecha"
+          placeholder="fecha nacimiento"
+        />
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary my-1" type="submit">
+          <i class="fas fa-plus-circle"></i> Añadir usuario
+        </button>
+
+        <button
+          class="btn btn-secondary m-1"
+          type="reset"
+          (click)="resetForm(userForm)"
+        >
+          <i class="fas fa-sync-alt"></i> Limpiar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
